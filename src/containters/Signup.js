@@ -46,8 +46,11 @@ export default function Signup(props) {
       setIsLoading(false);
       setNewUser(newUser);
     } catch (e) {
-      alert(e.message);
-      setIsLoading(false);
+      if(e.name === 'UsernameExistsException') {
+        await Auth.resendSignUp(fields.email);
+        setIsLoading(false);
+        // should somehow render confirmationForm
+      }
     }
   }
   
