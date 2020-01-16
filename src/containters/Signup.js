@@ -24,7 +24,7 @@ export default function Signup(props) {
   function validateForm() {
     return (
       fields.email.length > 0 &&
-      fields.password.length > 0 &&
+      fields.password.length > 6 &&
       fields.password === fields.confirmPassword
     );
   }
